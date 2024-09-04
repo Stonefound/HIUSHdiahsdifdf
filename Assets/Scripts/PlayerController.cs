@@ -5,13 +5,21 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public bool overworld; 
+    public bool overworld;
+
+    float xspeed;
+    float xdirection;
+    float xvector;
 
     private void Start()
     {
         GetComponentInChildren<TopDown_AnimatorController>().enabled = overworld;
         GetComponentInChildren<Platformer_AnimatorController>().enabled = !overworld; //what do you think ! means?
-        
+
+        //unity time.delta time look up is fix
+        xspeed = 4;
+        xdirection = 0;
+        xvector = 0;
         
         if (overworld)
         {
@@ -25,7 +33,10 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        
+        xdirection = Input.GetAxis("Horizontal");
+        xvector = xspeed * xdirection;
+
+        transform.Translate(xvector, 0, 0);
     }
     
     //for organization, put other built-in Unity functions here
