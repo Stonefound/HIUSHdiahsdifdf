@@ -10,17 +10,20 @@ public class PlayerController : MonoBehaviour
     float xspeed;
     float xdirection;
     float xvector;
+    float ydirection;
+    float yvector;
 
     private void Start()
     {
         GetComponentInChildren<TopDown_AnimatorController>().enabled = overworld;
         GetComponentInChildren<Platformer_AnimatorController>().enabled = !overworld; //what do you think ! means?
 
-        //unity time.delta time look up is fix
         xspeed = 4;
         xdirection = 0;
         xvector = 0;
-        
+        ydirection = 0;
+        yvector = 0;
+
         if (overworld)
         {
             GetComponent<Rigidbody2D>().gravityScale = 0f;
@@ -34,9 +37,15 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         xdirection = Input.GetAxis("Horizontal");
+        if (overworld)
+        {
+            ydirection = Input.GetAxis("Vertical");
+        }
         xvector = xspeed * xdirection;
+        yvector = xspeed * ydirection;
 
-        transform.Translate(xvector, 0, 0);
+        transform.Translate(xvector * Time.deltaTime, yvector * Time.deltaTime, 0);
+        
     }
     
     //for organization, put other built-in Unity functions here
