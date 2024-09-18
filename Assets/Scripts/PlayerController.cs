@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public int score = 0;
+    public GameManager gm;
+
     public bool overworld;
 
     float xspeed;
@@ -16,7 +19,9 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         GetComponentInChildren<TopDown_AnimatorController>().enabled = overworld;
-        GetComponentInChildren<Platformer_AnimatorController>().enabled = !overworld; //what do you think ! means?
+        GetComponentInChildren<Platformer_AnimatorController>().enabled = !overworld;
+
+        gm = FindObjectOfType<GameManager>();
 
         xspeed = 4;
         xdirection = 0;
@@ -47,12 +52,21 @@ public class PlayerController : MonoBehaviour
         transform.Translate(xvector * Time.deltaTime, yvector * Time.deltaTime, 0);
         
     }
-    
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Coin"))
+        {
+            gm.AddScore(1);  // Add 1 to score for each coin
+            Destroy(other.gameObject);
+        }
+    }
+
     //for organization, put other built-in Unity functions here
-    
-    
-    
-    
-    
+
+
+
+
+
     //after all Unity functions, your own functions can go here
 }
