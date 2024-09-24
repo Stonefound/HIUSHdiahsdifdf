@@ -1,16 +1,28 @@
-using System.Collections;
-using System.Collections.Generic;
+//using System.Collections;
+//using System.Collections.Generic;
+
+using System;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public int coins;
-    public int score;
+    public int coins; 
+    public int health;
+    private string coinstring;
+    private string healthstring;
+
+    
     
     public GameManager gm;
+    public TextMeshProUGUI coinText;
+    public TextMeshProUGUI healthText;
 
     private void Awake()
     {
+        health = 5;
+        
         if (gm != null && gm != this)
         {
             Destroy(this.gameObject);
@@ -23,21 +35,24 @@ public class GameManager : MonoBehaviour
 
         
     }
-    
-    public int GetScore()
+
+    private void Start()
     {
-        return score;
+
+        
     }
 
-    private void SetScore(int amount)
+    public void ChangeHealth(int amount)
     {
-        //when would we even use this? Why is it private?
-        score = amount;
+        health += amount;
+
     }
 
-    public void AddScore(int amount)
+    private void Update()
     {
-        score += amount;
-        // Your code here: Update the score display
+        coinstring = coins.ToString();
+        healthstring = health.ToString();
+        coinText.text = "coins: " + coinstring;
+        healthText.text = "health: " + healthstring;
     }
 }

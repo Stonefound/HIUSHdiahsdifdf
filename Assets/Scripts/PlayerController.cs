@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
         GetComponentInChildren<TopDown_AnimatorController>().enabled = overworld;
         GetComponentInChildren<Platformer_AnimatorController>().enabled = !overworld;
 
-        gm = FindObjectOfType<GameManager>();
+        gm = FindFirstObjectByType<GameManager>();
 
         xspeed = 4;
         xdirection = 0;
@@ -57,9 +57,13 @@ public class PlayerController : MonoBehaviour
     {
         if (other.CompareTag("Coin"))
         {
-            gm.AddScore(1);  // Add 1 to score for each coin
             Destroy(other.gameObject);
         }
+        if (other.CompareTag("Spikes"))
+        {
+            
+        }
+        
     }
 
     //for organization, put other built-in Unity functions here
