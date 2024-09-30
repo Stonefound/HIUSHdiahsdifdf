@@ -5,6 +5,7 @@ using System;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class GameManager : MonoBehaviour
 
     
     
-    public GameManager gm;
+    static GameManager gm;
     public TextMeshProUGUI coinText;
     public TextMeshProUGUI healthText;
 
@@ -36,12 +37,6 @@ public class GameManager : MonoBehaviour
         
     }
 
-    private void Start()
-    {
-
-        
-    }
-
     public void ChangeHealth(int amount)
     {
         health += amount;
@@ -51,8 +46,15 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         coinstring = coins.ToString();
-        healthstring = health.ToString();
+        healthstring = health.ToString(); 
         coinText.text = "coins: " + coinstring;
         healthText.text = "health: " + healthstring;
+        
+
     }
 }
+
+//from oregon to south dakota
+//underwater toilet quota
+//driving in an old toyota
+//systematic frog

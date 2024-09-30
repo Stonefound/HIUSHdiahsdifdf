@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.SceneManagement;
 
 public class HealthScript : MonoBehaviour
 {
@@ -13,8 +15,14 @@ public class HealthScript : MonoBehaviour
         gm = FindFirstObjectByType<GameManager>();
     }
 
-    // Update is called once per frame
-    
+   private void Update()
+    {
+        if (gm.health <= 0)
+        {
+            Die();
+        }
+    }
+
     void OnCollisionEnter2D(Collision2D other)
     {
         print("we triggered something");
@@ -25,6 +33,13 @@ public class HealthScript : MonoBehaviour
             
             
         }
+    }
+
+    void Die()
+    {
+        SceneManager.LoadScene(0);
+        gm.health = 5;
+        gm.coins = 0;
     }
     
 }
