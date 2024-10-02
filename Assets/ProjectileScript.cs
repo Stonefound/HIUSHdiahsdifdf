@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class ProjectileScript : MonoBehaviour
 {
     // Start is called before the first frame update
+    public Vector3 targetPostion;
     void Start()
     {
         
