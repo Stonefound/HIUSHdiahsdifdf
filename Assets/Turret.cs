@@ -8,7 +8,7 @@ public class Turret : MonoBehaviour
     //Start is called before the first frame update
 
     private int distance;
-    private int cooldown;
+    private float cooldown;
     private float firerate;
     
     private object script;
@@ -24,20 +24,26 @@ public class Turret : MonoBehaviour
 
     // Update is called once per frame
 
+    void Update()
+    {
+        cooldown -= Time.deltaTime;
+    }
+
     private void OnTriggerStay2D(Collider2D other)
     {
 
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") && cooldown <= 0)
         {
             
             GameObject clone = Instantiate(projectile, transform.position, Quaternion.identity);
 
-            ProjectileScript script = clone.GetComponent<ProjectileScript>();
+            ProjectileScript projectileScript = clone.GetComponent<ProjectileScript>();
             
-            script.targetPostion = other.GameObject().transform.position;
+            projectileScript.targetPosition = other.transform.position;
+            
             print("summoned bullet at" + other.GameObject().transform.position);
 
-
+            cooldown = 2;
         }
     }
     
