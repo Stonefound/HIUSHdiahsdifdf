@@ -12,7 +12,9 @@ GameObject:
   - component: {fileID: 2399072710900510365}
   - component: {fileID: 1996527365673187554}
   - component: {fileID: 654032518699918793}
-  m_Layer: 0
+  - component: {fileID: 8891077908852565971}
+  - component: {fileID: 6415422669703800489}
+  m_Layer: 3
   m_Name: MobileEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -119,6 +121,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7d29f282ea6d4cb98cdb2390a3dc37b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoints: []
+  playerPosition: {x: 0, y: 0, z: 0}
+  enemyCooldown: 0
+  fartshit: {fileID: 2864171262592659787}
+--- !u!114 &8891077908852565971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3736838050167469039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd8a18f0229a499da6a032e83043ac7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 6415422669703800489}
+--- !u!95 &6415422669703800489
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3736838050167469039}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a4ee56777e4cc459c951113b51dcef29, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6074370204116875197
 GameObject:
   m_ObjectHideFlags: 0
@@ -130,8 +170,10 @@ GameObject:
   - component: {fileID: 1641903180064529503}
   - component: {fileID: 3598236532681319789}
   - component: {fileID: 2864171262592659787}
-  m_Layer: 0
-  m_Name: Sprite
+  - component: {fileID: 2333371164606049169}
+  - component: {fileID: 7408974614702024964}
+  m_Layer: 3
+  m_Name: MobileSightRadius
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -225,3 +267,51 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!58 &2333371164606049169
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6074370204116875197}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.75
+--- !u!114 &7408974614702024964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6074370204116875197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd8a18f0229a499da6a032e83043ac7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 2864171262592659787}
