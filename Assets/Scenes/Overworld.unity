@@ -478,7 +478,7 @@ GameObject:
   - component: {fileID: 287773805}
   m_Layer: 0
   m_Name: Removed
-  m_TagString: Untagged
+  m_TagString: CaveWood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40134,6 +40134,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gm: {fileID: 0}
+  AxeItem: {fileID: 8928701524657299959, guid: 2d2bc4cf5fda5c740b9cedcdbc7c87ac, type: 3}
+  playerScript: {fileID: 0}
 --- !u!1 &703228634
 GameObject:
   m_ObjectHideFlags: 0
@@ -83584,7 +83586,7 @@ GameObject:
   - component: {fileID: 1270322013}
   m_Layer: 0
   m_Name: Collision Cave Removed
-  m_TagString: Untagged
+  m_TagString: CaveWood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -127577,7 +127579,7 @@ GameObject:
   - component: {fileID: 1665360717}
   m_Layer: 0
   m_Name: No Collision Door Removed
-  m_TagString: Untagged
+  m_TagString: CaveWood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -128148,7 +128150,7 @@ GameObject:
   - component: {fileID: 1861919208}
   m_Layer: 0
   m_Name: Collision Door Removed
-  m_TagString: Untagged
+  m_TagString: CaveWood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -11,6 +11,7 @@ TagManager:
   - Bullet
   - Collision
   - CollisionTrigger
+  - CaveWood
   layers:
   - Default
   - TransparentFX

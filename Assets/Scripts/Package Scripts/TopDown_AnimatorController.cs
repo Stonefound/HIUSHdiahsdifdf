@@ -14,6 +14,8 @@ public class TopDown_AnimatorController : MonoBehaviour
 
     Animator anim;
     SpriteRenderer sprite;
+    private GameObject MobileEnemy;
+   
 
     private void Start()
     {
@@ -30,6 +32,7 @@ public class TopDown_AnimatorController : MonoBehaviour
 
     private void Update()
     {
+        
         if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
         {
             if (Input.GetAxis("Horizontal") != 0 && Input.GetAxis("Vertical") != 0)

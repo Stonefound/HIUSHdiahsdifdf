@@ -11,18 +11,25 @@ public class TopDown_EnemyAnimator : MonoBehaviour
     Vector3 prevPos;
     [SerializeField] Animator anim;
     public float enemyCooldown;
+    public WanderEnemy script;
+    public bool goAttack;
 
     // Start is called before the first frame update
     private void Start()
     {
-        enemyCooldown = 4;
+        gm = FindFirstObjectByType<GameManager>();
+        script = gameObject.GetComponent<WanderEnemy>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        
-        enemyCooldown -= Time.deltaTime;
+        if (goAttack)
+        {
+            Attack();
+        }
+
+        //enemyCooldown -= Time.deltaTime;
         
         Vector3 movement = transform.position - prevPos;
 
@@ -52,13 +59,8 @@ public class TopDown_EnemyAnimator : MonoBehaviour
         prevPos = transform.position;
 
         IsAttacking = anim.GetCurrentAnimatorStateInfo(0).IsTag("Attack");
-        
-        if (enemyCooldown <= 0)
-        {
-            print("callAttack" + enemyCooldown);
-            Attack();
-            enemyCooldown = 4;
-        }
+
+       
     }
 
     // Call this function from another script for the orc to attack!
@@ -66,6 +68,8 @@ public class TopDown_EnemyAnimator : MonoBehaviour
     {
         anim.SetTrigger("Attack");
         print("functionAttack");
+        enemyCooldown = 2;
+        goAttack = false;
         gm.ChangeHealth(-1);
     }
 }

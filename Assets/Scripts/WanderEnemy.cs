@@ -13,7 +13,11 @@ public class WanderEnemy : MonoBehaviour
     public List<Vector3> waypoints = new List<Vector3>();
     public Vector3 playerPosition;
     public float enemyCooldown;
+    public bool playerAttacking;
     public TopDown_EnemyAnimator script;
+    public TopDown_AnimatorController playerScript;
+    public GameObject MobileEnemy;
+    
     
     
    public enum States
@@ -32,9 +36,10 @@ public class WanderEnemy : MonoBehaviour
     {
         state = States.Patrol;
         num = 0;
-        enemyCooldown = 4;
+        enemyCooldown = 3;
         
-        script = gameObject.GetComponent<TopDown_EnemyAnimator>();
+        script = GetComponent<TopDown_EnemyAnimator>();
+        playerScript = GetComponent<TopDown_AnimatorController>();
         
         for (num = 0; num < 5; num++)
         {
@@ -53,8 +58,8 @@ public class WanderEnemy : MonoBehaviour
     
     void Update()
     {
-        //enemyCooldown -= Time.deltaTime;
-        script.enemyCooldown = enemyCooldown;
+        enemyCooldown -= Time.deltaTime;
+        //script.enemyCooldown = enemyCooldown;
         
         if (state == States.Patrol)
         {
@@ -68,12 +73,14 @@ public class WanderEnemy : MonoBehaviour
         {
             if (enemyCooldown < 0)
             {
+                print("WanderEnemyCallAttack");
+                script.goAttack = true;
                 enemyCooldown = 4;
             }
         }
         else
         {
-            enemyCooldown = 4;
+            //goAttack = false;
         }
 
         if (transform.position == waypoints[num])

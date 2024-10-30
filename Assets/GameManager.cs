@@ -53,8 +53,3 @@ public class GameManager : MonoBehaviour
 
     }
 }
-
-//from oregon to south dakota
-//underwater toilet quota
-//driving in an old toyota
-//systematic frog
