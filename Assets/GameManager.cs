@@ -13,12 +13,14 @@ public class GameManager : MonoBehaviour
     public int health;
     private string coinstring;
     private string healthstring;
+    private string verticalstring;
 
     
     
     static GameManager gm;
     public TextMeshProUGUI coinText;
     public TextMeshProUGUI healthText;
+    public TextMeshProUGUI debugText;
 
     private void Awake()
     {
@@ -46,10 +48,11 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         coinstring = coins.ToString();
-        healthstring = health.ToString(); 
+        healthstring = health.ToString();
+        verticalstring = Input.GetAxis("Vertical").ToString();
         coinText.text = "coins: " + coinstring;
         healthText.text = "health: " + healthstring;
-        
+        debugText.text = verticalstring;
 
     }
 }

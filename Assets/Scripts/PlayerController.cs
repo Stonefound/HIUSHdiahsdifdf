@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime;
@@ -46,6 +47,12 @@ public class PlayerController : MonoBehaviour
         {
             ydirection = Input.GetAxis("Vertical");
         }
+
+        if (!overworld)
+        {
+            ydirection = Math.Abs(Input.GetAxis("Vertical")) * 2;
+        }
+        
         xvector = xspeed * xdirection;
         yvector = xspeed * ydirection;
 
